@@ -3,183 +3,510 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My CV</title>
+    <title>Hsuan-Hsin Huang</title>
+    <meta name="description" content="Hsuan-Hsin Huang: industrial engineering researcher in laser micromachining and parameter analysis, heading into culture and creative industry management.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+    <div class="progress" id="progress"></div>
+    <div class="cursor-glow" id="cursorGlow"></div>
+    <header class="nav" id="nav">
+        <div class="nav-inner">
+            <a href="#top" class="brand">H<span>.</span>H<span>.</span>H</a>
+            <nav>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#experience">Experience</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#honors">Honors</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#contact" class="nav-cta">Contact</a></li>
+                </ul>
+            </nav>
+            <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+                <span></span><span></span>
+            </button>
+        </div>
     </header>
-    <div id="hotzone"></div>
 
-    <main>
+    <main id="top">
+        <!-- HERO -->
+        <section class="hero">
+            <div class="aurora" aria-hidden="true"><span class="blob b1"></span><span class="blob b2"></span><span class="blob b3"></span></div>
+            <div class="grid-bg" aria-hidden="true"></div>
+            <div class="wrap hero-grid">
+                <div class="hero-text">
+                    <p class="eyebrow reveal"><span class="dot"></span>New Taipei City, Taiwan &rarr; France</p>
+                    <h1 class="reveal">Hsuan-Hsin<br><em class="grad-text">Huang</em></h1>
+                    <p class="hero-lede reveal">Industrial engineer working where <strong>lasers meet data</strong>: micromachining, experimental design and parameter analysis. Now studying <strong>culture &amp; creative industry management</strong> in France.</p>
+                    <ul class="tags reveal">
+                        <li>Laser micromachining</li>
+                        <li>Design of experiments</li>
+                        <li>Material analysis</li>
+                        <li>Parameter analysis</li>
+                        <li>Mathematical programming</li>
+                    </ul>
+                    <div class="hero-actions reveal">
+                        <a href="#contact" class="btn btn-solid">Get in touch <i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="https://www.linkedin.com/in/newstar0530" target="_blank" rel="noopener" class="btn btn-ghost"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
+                    </div>
+                </div>
+                <div class="hero-portrait reveal">
+                    <div class="arch">
+                        <img src="picture/web/大頭照.jpg" alt="Portrait of Hsuan-Hsin Huang">
+                    </div>
+                    <div class="badge badge-a"><span class="mono">NTHU</span>IEEM</div>
+                    <div class="badge badge-b"><span class="mono">NEOMA</span>MiM 2026</div>
+                </div>
+            </div>
+            <a href="#about" class="scroll-hint" aria-label="Scroll down"><span></span></a>
+        </section>
+
+
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-track">
+                <span>Laser micromachining</span><i>✦</i><span>Design of experiments</span><i>✦</i><span>Parameter analysis</span><i>✦</i><span>Material analysis</span><i>✦</i><span>Python automation</span><i>✦</i><span>Brand marketing</span><i>✦</i>
+                <span>Laser micromachining</span><i>✦</i><span>Design of experiments</span><i>✦</i><span>Parameter analysis</span><i>✦</i><span>Material analysis</span><i>✦</i><span>Python automation</span><i>✦</i><span>Brand marketing</span><i>✦</i>
+            </div>
+        </div>
+
+        <!-- ABOUT -->
         <section id="about" class="section">
-            <div class="container">
-                <div class="profile">
-                    <div class="profile-image">
-                        <img src="picture/大頭照.png" alt="Profile Picture">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="num">01</span>
+                    <h2>About</h2>
+                </div>
+                <div class="about-grid">
+                    <p class="about-lead reveal">I like making precise things <em>repeatable</em>. In the lab that means running femtosecond and nanosecond lasers, measuring what they leave behind, and writing the Python that ties the instruments together.</p>
+                    <div class="about-body reveal">
+                        <p>I'm a master's student in Industrial Engineering and Engineering Management at National Tsing Hua University. My work spans laser processing, surface measurement and optimization, and I also build database and web tools for university offices.</p>
+                        <p>Since September 2026 I've been at NEOMA Business School for a Master in Management in Culture &amp; Creative Industry, bringing an engineer's way of thinking to branding, retail and customer experience.</p>
                     </div>
-                    <div class="profile-info">
-                        <h1>HUANG HSUAN HSIN</h1>
-                        <h2>Interdisciplinary Industrial Engineering Graduate Student</h2>
-                        <p class="bio">A passionate graduate student in industrial engineering with a strong interdisciplinary background, specializing in stochastic optimization, statistical analytics, and AI-driven decision-making. Experienced in stakeholder interviewing, project coordination, and executive-level presentation. Currently focused on research in laser processing and deep learning for predictive analysis, with a keen interest in digital transformation and cross-functional collaboration.</p>
-                    </div>
+                </div>
+                <div class="stats reveal">
+                    <div class="stat"><span class="stat-n" data-count="3">3</span><span class="stat-l">Universities</span></div>
+                    <div class="stat"><span class="stat-n" data-count="6">6</span><span class="stat-l">Precision instruments</span></div>
+                    <div class="stat"><span class="stat-n" data-count="5">5</span><span class="stat-l">Certifications</span></div>
+                    <div class="stat"><span class="stat-n" data-count="7">7</span><span class="stat-l">Honors &amp; competitions</span></div>
                 </div>
             </div>
         </section>
 
+        <!-- RESEARCH -->
+        <section id="research" class="section section-alt">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="num">02</span>
+                    <h2>Research &amp; Lab</h2>
+                    <p class="section-sub">Hands-on work with precision equipment, measurement and automation.</p>
+                </div>
+                <div class="cards">
+                    <article class="card reveal">
+                        <div class="card-icon"><i class="fa-solid fa-bolt"></i></div>
+                        <h3>Equipment</h3>
+                        <ul>
+                            <li>Sensofar 3D Neox</li>
+                            <li>Femtosecond laser machining</li>
+                            <li>Nanosecond laser machining</li>
+                            <li>Laser cutting machines</li>
+                            <li>3D printers</li>
+                            <li>Hydrophobicity instruments</li>
+                        </ul>
+                    </article>
+                    <article class="card reveal">
+                        <div class="card-icon"><i class="fa-solid fa-microscope"></i></div>
+                        <h3>Measurement</h3>
+                        <ul>
+                            <li>Hydrophobicity testing</li>
+                            <li>CIELAB color analysis</li>
+                            <li>3D surface morphology measurement</li>
+                        </ul>
+                        <p class="card-note">Used to evaluate process results and support research validation.</p>
+                    </article>
+                    <article class="card card-wide reveal">
+                        <div class="card-icon"><i class="fa-solid fa-gears"></i></div>
+                        <h3>Engineering &amp; Automation</h3>
+                        <ol class="steps">
+                            <li><strong>Python job files.</strong> Generated machine job files in code instead of relying only on the machine UI, cutting repetitive setup.</li>
+                            <li><strong>Cross-instrument workflows.</strong> Automated hand-offs between instruments to reduce manual operation time and keep runs consistent.</li>
+                            <li><strong>Oxygen delivery pipeline.</strong> Designed the gas line for a chamber system to extend the experimental setup.</li>
+                            <li><strong>Data acquisition fixes.</strong> Tracked down storage issues that interrupted morphology measurements.</li>
+                        </ol>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE -->
         <section id="experience" class="section">
-            <div class="container">
-                <h2>Work Experience</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Strategy Intern</h3>
-                            <h4>CHING KUNG CO., LTD.</h4>
-                            <p class="date">Mar 2023 – May 2023</p>
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="num">03</span>
+                    <h2>Experience</h2>
+                </div>
+                <div class="rows">
+                    <article class="row reveal">
+                        <div class="row-meta">
+                            <span class="mono">Nov 2025 &ndash; Jul 2026</span>
+                            <span class="row-place">Hsinchu City</span>
+                        </div>
+                        <div class="row-body">
+                            <h3>Database Research Assistant</h3>
+                            <p class="row-org">National Tsing Hua University · Office of Global Affairs</p>
                             <ul>
-                                <li>Partnered with senior managers to drive lean production design and internal process optimization</li>
-                                <li>Led stakeholder interviews to gather operational insights and identify areas for improvement</li>
-                                <li>Coordinated cross-functional teams to align on workflow changes and tracked project milestones</li>
-                                <li>Developed executive-ready presentations and briefing materials for strategic reviews</li>
+                                <li>Building a web platform that integrates and visualizes project information across teams.</li>
+                                <li>Customized project-management process tools specific to the Office of Global Affairs.</li>
+                            </ul>
+                            <ul class="mini-tags"><li>Python</li><li>Docker</li><li>Data visualization</li></ul>
+                        </div>
+                    </article>
+                    <article class="row reveal">
+                        <div class="row-meta">
+                            <span class="mono">Nov 2025 &ndash; Jul 2026</span>
+                            <span class="row-place">Hsinchu City</span>
+                        </div>
+                        <div class="row-body">
+                            <h3>Database Research Assistant</h3>
+                            <p class="row-org">National Tsing Hua University · Dept. of Foreign Languages &amp; Literatures</p>
+                            <ul>
+                                <li>Established an English paper database and website with full-text search.</li>
+                                <li>Deployed the database on a cloud server.</li>
+                            </ul>
+                            <ul class="mini-tags"><li>MySQL</li><li>Docker</li><li>Full-text search</li></ul>
+                        </div>
+                    </article>
+                    <article class="row reveal">
+                        <div class="row-meta">
+                            <span class="mono">Jul 2022 &ndash; Aug 2022</span>
+                            <span class="row-place">Xinzhuang, New Taipei</span>
+                        </div>
+                        <div class="row-body">
+                            <h3>Civil Engineering Assistant</h3>
+                            <p class="row-org">A PLUS Smart Traffic Technology</p>
+                            <ul>
+                                <li>Collaborated with engineers on city development proposals to improve sidewalk infrastructure.</li>
+                                <li>Delivered technical CAD drawings for municipal planning and logistics review.</li>
+                            </ul>
+                            <ul class="mini-tags"><li>CAD</li><li>Collaborative problem solving</li></ul>
+                        </div>
+                    </article>
+                    <article class="row reveal">
+                        <div class="row-meta">
+                            <span class="mono">Mar 2022 &ndash; Jun 2022</span>
+                            <span class="row-place">Taichung</span>
+                        </div>
+                        <div class="row-body">
+                            <h3>Office Staff</h3>
+                            <p class="row-org">Tunghai University · Office of Sustainable Development and Institutional Research</p>
+                            <ul>
+                                <li>Assisted with administrative tasks and document processing.</li>
                             </ul>
                         </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>CAD Assistant Intern</h3>
-                            <h4>A PLUS SMART TRAFFIC TECHNOLOGY CO., LTD.</h4>
-                            <p class="date">Jul 2022 – Aug 2022</p>
-                            <ul>
-                                <li>Collaborated with engineers on city development proposals, enhancing sidewalk infrastructure</li>
-                                <li>Delivered technical CAD drawings for municipal planning and logistics review</li>
-                            </ul>
-                        </div>
-                    </div>
+                    </article>
                 </div>
             </div>
         </section>
 
+        <!-- PROJECTS -->
+        <section id="projects" class="section section-alt">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="num">04</span>
+                    <h2>Leadership &amp; Projects</h2>
+                    <p class="section-sub">Things I build, and campus roles at National Tsing Hua University connecting people, cultures and ideas.</p>
+                </div>
+                <div class="proj-grid">
+                    <button type="button" class="proj proj-featured reveal" data-modal="modal-translator">
+                        <span class="mono">Side project · 2026</span>
+                        <h3>Nova's Translator</h3>
+                        <p class="proj-desc">A live lecture translator: English and French lectures become Traditional Chinese subtitles in real time, then structured study notes after class.</p>
+                        <ul class="mini-tags"><li>Python</li><li>Streamlit</li><li>Mistral API</li><li>Speech recognition</li></ul>
+                        <span class="proj-open">View project <i class="fa-solid fa-arrow-right"></i></span>
+                    </button>
+                    <article class="proj reveal">
+                        <span class="mono">Sep 2024 &ndash; Jul 2026</span>
+                        <h3>International Youth Ambassador</h3>
+                        <ul>
+                            <li>Assisted the Tsinghua Global Office in receiving foreign visiting delegations.</li>
+                            <li>Introduced the campus to visiting groups.</li>
+                        </ul>
+                        <ul class="mini-tags"><li>Interactive storytelling</li></ul>
+                    </article>
+                    <article class="proj reveal">
+                        <span class="mono">Sep 2024 &ndash; Jun 2026</span>
+                        <h3>IEEM Representative</h3>
+                        <ul>
+                            <li>Assisted with departmental affairs and fostered relationships among students.</li>
+                            <li>Organized the graduation ceremony for the whole department.</li>
+                        </ul>
+                        <ul class="mini-tags"><li>Leadership</li><li>Cross-functional team leadership</li></ul>
+                    </article>
+                    <article class="proj reveal">
+                        <span class="mono">Nov 2025 &ndash; May 2026</span>
+                        <h3>SDGs Ambassador</h3>
+                        <ul>
+                            <li>Bridged the school and students to share NTHU's work on sustainable development.</li>
+                            <li>Used stage performances to spark student reflection on nuclear energy.</li>
+                        </ul>
+                        <ul class="mini-tags"><li>Brand marketing</li><li>Interactive storytelling</li></ul>
+                    </article>
+                    <article class="proj reveal">
+                        <span class="mono">Nov 2025 &ndash; Feb 2026</span>
+                        <h3>Huayu BEST Partner</h3>
+                        <ul>
+                            <li>Helped international students settle into campus life and daily errands.</li>
+                            <li>Introduced Taiwanese culture to international students.</li>
+                        </ul>
+                        <ul class="mini-tags"><li>International communication</li></ul>
+                    </article>
+                    <article class="proj reveal">
+                        <span class="mono">Nov 2025 &ndash; Jan 2026</span>
+                        <h3>Micron Student Ambassador</h3>
+                        <ul>
+                            <li>Promoted the Micron semiconductor innovation competition on campus.</li>
+                        </ul>
+                        <ul class="mini-tags"><li>Brand marketing</li><li>Interactive storytelling</li></ul>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION -->
         <section id="education" class="section">
-            <div class="container">
-                <h2>Education</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Master of Industrial Engineering and Engineering Management</h3>
-                            <h4>National Tsing Hua University</h4>
-                            <p class="date">Sep 2024 – June 2026 (Expected)</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content">
-                            <h3>Bachelor of Industrial Engineering and Business Information</h3>
-                            <h4>Tung Hai University</h4>
-                            <p class="date">Sep 2020 – June 2024</p>
-                            <p>Relevant Coursework: Supply Chain Management, Systems Simulation, Artificial Intelligence Technology and Applications, AWS Cloud Service Certification, Data Analysis and Decision Modeling</p>
-                        </div>
-                    </div>
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="num">05</span>
+                    <h2>Education</h2>
+                </div>
+                <div class="edu">
+                    <article class="edu-card reveal">
+                        <span class="mono edu-date">Sep 2026 &ndash; Apr 2027</span>
+                        <h3>NEOMA Business School</h3>
+                        <p>Master in Management<br><em>Culture &amp; Creative Industry</em></p>
+                        <span class="pill pill-accent">In progress</span>
+                    </article>
+                    <article class="edu-card reveal">
+                        <span class="mono edu-date">Sep 2024 &ndash; 2027</span>
+                        <h3>National Tsing Hua University <span class="zh">國立清華大學</span></h3>
+                        <p>Master of Engineering<br><em>Industrial Engineering &amp; Engineering Management</em></p>
+                        <span class="pill">Expected 2027</span>
+                    </article>
+                    <article class="edu-card reveal">
+                        <span class="mono edu-date">2020 &ndash; 2024</span>
+                        <h3>Tunghai University <span class="zh">東海大學</span></h3>
+                        <p>Bachelor of Engineering<br><em>Industrial Engineering &amp; Enterprise Information</em></p>
+                        <span class="pill">Completed</span>
+                    </article>
                 </div>
             </div>
         </section>
 
+        <!-- HONORS -->
+        <section id="honors" class="section section-alt">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="num">06</span>
+                    <h2>Honors &amp; Competitions</h2>
+                </div>
+                <article class="honor-feature reveal">
+                    <div class="honor-feature-meta">
+                        <span class="pill pill-accent">Conference presentation</span>
+                        <span class="mono">Apr 2026 · National University of Singapore</span>
+                    </div>
+                    <h3>ICIEA 2026</h3>
+                    <p class="honor-feature-sub">International Conference on Industrial Engineering and Applications</p>
+                    <p class="paper-title">&ldquo;Multi-objective Optimization of Geometric Characteristics in Femtosecond Laser Micromachining via NSGA-II&rdquo;</p>
+                    <p>Presented my research at an international academic conference.</p>
+                </article>
+                <div class="honors">
+                    <article class="honor reveal">
+                        <div class="honor-rank">3<sup>rd</sup></div>
+                        <div>
+                            <span class="mono">Nov 2025 · National Tsing Hua University</span>
+                            <h3>Entrepreneurship Competition</h3>
+                            <p>Wrote a business plan turning laser coloring technology into a product.</p>
+                        </div>
+                    </article>
+                    <article class="honor reveal">
+                        <div class="honor-rank">1<sup>st</sup></div>
+                        <div>
+                            <span class="mono">Dec 2023 · Tunghai University IEEI</span>
+                            <h3>Special Research on Production Practices in High-Tech Industries</h3>
+                            <p>Built an XGBoost stock-trend prediction model: data cleaning, feature engineering, training and evaluation.</p>
+                        </div>
+                    </article>
+                    <article class="honor reveal">
+                        <div class="honor-rank">2<sup>nd</sup></div>
+                        <div>
+                            <span class="mono">Jun 2023 · Tunghai University IEEI</span>
+                            <h3>Toyota Production System</h3>
+                            <p>Worked with a company on TPS improvements through industry-academia collaboration; second place at the management seminar.</p>
+                        </div>
+                    </article>
+                    <article class="honor reveal">
+                        <div class="honor-rank honor-rank-sm">Short&shy;listed</div>
+                        <div>
+                            <span class="mono">Dec 2022 · Tunghai University College of Engineering</span>
+                            <h3>Smart Sustainable Circulation Technology Competition</h3>
+                            <p>Built a hospital wayfinding web app in JavaScript, opened by scanning QR codes. Shortlisted in the poster category.</p>
+                        </div>
+                    </article>
+                    <article class="honor reveal">
+                        <div class="honor-rank honor-rank-sm">Honorable mention</div>
+                        <div>
+                            <span class="mono">Nov 2022 · Takming University</span>
+                            <h3>National Sustainable Tourism Itinerary Design Competition</h3>
+                            <p>Designed a sustainable tourism itinerary for Yilan and passed the preliminary round.</p>
+                        </div>
+                    </article>
+                    <article class="honor reveal">
+                        <div class="honor-rank honor-rank-sm">Finalist</div>
+                        <div>
+                            <span class="mono">Nov 2022 · Yuan Ze University</span>
+                            <h3>VR/AR Educational Application Creation Competition</h3>
+                            <p>Developed an AR bus app to solve hard-to-read bus stop signs; passed the initial selection.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS -->
         <section id="skills" class="section">
-            <div class="container">
-                <h2>Skills</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3>Programming & Tools</h3>
-                        <ul>
-                            <li>Python, SQL, MATLAB</li>
-                            <li>Excel (VLOOKUP), PowerPoint, Git</li>
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="num">07</span>
+                    <h2>Skills &amp; Certifications</h2>
+                </div>
+                <div class="skills-layout">
+                    <div class="skill-block reveal">
+                        <h3>Engineering &amp; research</h3>
+                        <ul class="chips chips-outline">
+                            <li>Laser micromachining</li>
+                            <li>Design of experiments</li>
+                            <li>Material analysis</li>
+                            <li>Parameter analysis</li>
+                            <li>Mathematical programming</li>
+                            <li>Deep learning</li>
+                        </ul>
+                        <h3>Tools</h3>
+                        <ul class="chips">
+                            <li>Codex</li>
+                            <li>Claude Code</li>
+                            <li>Python</li>
+                            <li>MySQL</li>
+                            <li>Docker</li>
+                            <li>Canva</li>
+                            <li>DaVinci Resolve</li>
                         </ul>
                     </div>
-                    <div class="skill-category">
-                        <h3>Expertise</h3>
-                        <ul>
-                            <li>Stochastic Optimization</li>
-                            <li>Deep Learning</li>
-                            <li>Statistical Analysis</li>
-                            <li>System Simulation</li>
-                            <li>Language: Mandarin (Native), English (Professional Proficiency)</li>
+                    <div class="skill-block reveal">
+                        <h3>People &amp; brand</h3>
+                        <ul class="chips chips-outline">
+                            <li>Leadership</li>
+                            <li>Team leadership</li>
+                            <li>Cross-functional team leadership</li>
+                            <li>Brand marketing</li>
+                            <li>Interactive storytelling</li>
+                            <li>International communication</li>
                         </ul>
                     </div>
-                    <div class="skill-category">
-                        <h3>Interests</h3>
-                        <ul>
-                            <li>Photography</li>
-                            <li>Digital Drawing</li>
-                            <li>Reading</li>
+                    <div class="skill-block reveal">
+                        <h3>Certifications</h3>
+                        <ul class="certs">
+                            <li><span class="mono">Dec 2025</span><strong>LVMH</strong>Creation &amp; branding, retail, customer experience</li>
+                            <li><span class="mono">Aug 2025</span><strong>Light Generation Preparatory School</strong>Graduation certificate · Dept. of Physics, National Central University</li>
+                            <li><span class="mono">Jun 2025</span><strong>TSMC</strong>Newcomer Training Center certificate</li>
+                            <li><span class="mono">Mar 2025</span><strong>NVIDIA</strong>Certificate of deep learning</li>
+                            <li><span class="mono">Jun 2023</span><strong>Chinese ERP Association</strong>Enterprise Resource Planning, distribution module</li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="portfolio" class="section">
-            <div class="container">
-                <h2>Portfolio</h2>
-                <div class="portfolio-featured">
-                    <div class="portfolio-item portfolio-featured-item">
-                        <img src="picture/北海岸.jpeg" alt="北海岸">
-                        <div class="portfolio-title">北海岸</div>
-                    </div>
+        <!-- PHOTO BAND -->
+        <section class="band">
+            <div class="band-img" style="background-image:url('picture/web/北海岸.jpeg')"></div>
+            <p class="band-quote reveal">Engineer by training.<br><em>Photographer</em> by habit.</p>
+        </section>
+
+        <!-- GALLERY -->
+        <section id="gallery" class="section section-alt">
+            <div class="wrap">
+                <div class="section-head reveal">
+                    <span class="num">08</span>
+                    <h2>Through my lens</h2>
+                    <p class="section-sub">Photography from Taiwan and beyond. Click any photo to enlarge.</p>
                 </div>
-                <div class="portfolio-grid">
-                    <div class="portfolio-item"><img src="picture/武嶺.jpeg" alt="武嶺"><div class="portfolio-title">武嶺</div></div>
-                    <div class="portfolio-item"><img src="picture/金山.jpeg" alt="金山"><div class="portfolio-title">金山</div></div>
-                    <div class="portfolio-item"><img src="picture/高美.jpeg" alt="高美"><div class="portfolio-title">高美</div></div>
-                    <div class="portfolio-item"><img src="picture/lalaport.jpeg" alt="lalaport"><div class="portfolio-title">lalaport</div></div>
-                    <div class="portfolio-item"><img src="picture/清華.jpeg" alt="清華"><div class="portfolio-title">清華</div></div>
-                    <div class="portfolio-item"><img src="picture/東海.jpeg" alt="東海"><div class="portfolio-title">東海</div></div>
+                <div class="gallery">
+                    <figure class="g g-wide reveal"><img src="picture/web/京都.jpeg" alt="Hokan-ji pagoda in Kyoto" loading="lazy" style="object-position:center 55%"><figcaption>京都 · Kyoto</figcaption></figure>
+                    <figure class="g reveal"><img src="picture/web/武嶺.jpeg" alt="Wuling" loading="lazy"><figcaption>武嶺 · Wuling</figcaption></figure>
+                    <figure class="g reveal"><img src="picture/web/高美.jpeg" alt="Gaomei" loading="lazy"><figcaption>高美 · Gaomei</figcaption></figure>
+                    <figure class="g g-wide reveal"><img src="picture/web/金山.jpeg" alt="Jinshan" loading="lazy"><figcaption>金山 · Jinshan</figcaption></figure>
+                    <figure class="g reveal"><img src="picture/web/清華.jpeg" alt="National Tsing Hua University" loading="lazy"><figcaption>清華 · NTHU</figcaption></figure>
+                    <figure class="g reveal"><img src="picture/web/東海.jpeg" alt="Tunghai University" loading="lazy"><figcaption>東海 · Tunghai</figcaption></figure>
+                    <figure class="g reveal"><img src="picture/web/lalaport.jpeg" alt="LaLaport" loading="lazy"><figcaption>LaLaport</figcaption></figure>
                 </div>
             </div>
         </section>
 
-        <section id="contact" class="section">
-            <div class="container">
-                <h2>Contact Me</h2>
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <p>sean8910657@gmail.com</p>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <p>0976303557</p>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        <p><a href="https://www.linkedin.com/in/newstar0530" target="_blank">www.linkedin.com/in/newstar0530</a></p>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-github"></i>
-                        <p><a href="https://github.com/Newstar0530" target="_blank">github.com/Newstar0530</a></p>
-                    </div>
-                </div>
-                <div class="social-links">
-                    <a href="https://www.linkedin.com/in/newstar0530" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/Newstar0530" target="_blank"><i class="fab fa-github"></i></a>
+        <!-- CONTACT -->
+        <section id="contact" class="contact">
+            <div class="wrap">
+                <p class="eyebrow eyebrow-light reveal"><span class="dot"></span>09 · Contact</p>
+                <h2 class="reveal">Let's build something<br><em class="grad-text">precise</em> together.</h2>
+                <a href="mailto:sean8910657@gmail.com" class="contact-mail reveal">sean8910657@gmail.com <i class="fa-solid fa-arrow-right"></i></a>
+                <div class="contact-links reveal">
+                    <a href="https://www.linkedin.com/in/newstar0530" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin-in"></i> LinkedIn</a>
+                    <a href="https://github.com/Newstar0530" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Your Name. All rights reserved.</p>
+    <footer class="footer">
+        <div class="wrap footer-inner">
+            <span>&copy; 2026 Hsuan-Hsin Huang</span>
+            <a href="#top">Back to top <i class="fa-solid fa-arrow-up"></i></a>
         </div>
     </footer>
+
+    <div class="modal" id="modal-translator" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-translator-title">
+        <div class="modal-panel">
+            <button class="modal-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <img src="picture/web/lecture_translator.webp" alt="Nova's Translator app interface" class="modal-shot">
+            <div class="modal-body">
+                <span class="mono">Side project · 2026</span>
+                <h3 id="modal-translator-title">Nova's Translator</h3>
+                <p>A desktop web app I built for studying abroad. It listens to the lecture, shows Traditional Chinese subtitles live with the original text underneath, and after class turns the whole transcript into Markdown notes.</p>
+                <ul class="modal-list">
+                    <li><strong>Real-time pipeline.</strong> Microphone &rarr; Mistral Voxtral speech recognition &rarr; sentence segmentation &rarr; Mistral translation, saved to disk as it goes.</li>
+                    <li><strong>Slide-aware translation.</strong> Reads the uploaded PDF or PPTX first to learn the course domain and its terminology, so technical terms stay consistent.</li>
+                    <li><strong>Term corrections.</strong> Fix a mistranslated term once and it applies to later translations and notes, saved per course.</li>
+                    <li><strong>One-click notes.</strong> Summary, detailed notes, assignment reminders and a glossary, with flashcard export to Anki and Quizlet and sync to Notion.</li>
+                    <li><strong>Built for real classrooms.</strong> Auto-reconnects after network or microphone drops, keeps the Mac awake while recording, and resumes after a page refresh.</li>
+                </ul>
+                <ul class="mini-tags"><li>Python</li><li>Streamlit</li><li>Mistral API</li><li>Voxtral Realtime</li><li>Notion API</li></ul>
+                <a href="https://github.com/Newstar0530/lecture_translator" target="_blank" rel="noopener" class="btn btn-solid modal-cta"><i class="fa-brands fa-github"></i> View on GitHub</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="lightbox" id="lightbox" aria-hidden="true">
+        <button class="lb-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+        <button class="lb-prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+        <figure><img src="" alt=""><figcaption></figcaption></figure>
+        <button class="lb-next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
 
     <script src="script.js"></script>
 </body>
