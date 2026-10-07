@@ -779,3 +779,16 @@ button.proj { font: inherit; color: var(--ink); text-align: left; cursor: pointe
     color: var(--tiffany); padding: 3px 10px; border-radius: 999px;
     border: 1px solid rgba(95, 216, 207, .35); background: rgba(95, 216, 207, .08);
 }
+
+/* Equipment & measurement card */
+.equip { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 40px; }
+.equip h4 {
+    font-weight: 500; font-size: .72rem; text-transform: uppercase; letter-spacing: .14em;
+    color: var(--muted); margin: 4px 0 6px;
+}
+.card .equip-pairs li { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+.equip-pairs strong { color: var(--ink); font-weight: 500; }
+.equip-pairs span { color: var(--accent); font-size: .88rem; }
+@media (max-width: 680px) {
+    .equip { grid-template-columns: 1fr; }
+}

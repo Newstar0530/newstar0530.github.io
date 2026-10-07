@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=20261007">
 </head>
 <body>
     <div class="progress" id="progress"></div>
@@ -139,26 +139,28 @@
                     <p class="section-sub">Hands-on work with precision equipment, measurement and automation.</p>
                 </div>
                 <div class="cards">
-                    <article class="card reveal">
-                        <div class="card-icon"><i class="fa-solid fa-bolt"></i></div>
-                        <h3>Equipment</h3>
-                        <ul>
-                            <li>Sensofar 3D Neox</li>
-                            <li>Femtosecond laser machining</li>
-                            <li>Nanosecond laser machining</li>
-                            <li>Laser cutting machines</li>
-                            <li>3D printers</li>
-                            <li>Hydrophobicity instruments</li>
-                        </ul>
-                    </article>
-                    <article class="card reveal">
+                    <article class="card card-wide reveal">
                         <div class="card-icon"><i class="fa-solid fa-microscope"></i></div>
-                        <h3>Measurement</h3>
-                        <ul>
-                            <li>Hydrophobicity testing</li>
-                            <li>CIELAB color analysis</li>
-                            <li>3D surface morphology measurement</li>
-                        </ul>
+                        <h3>Equipment &amp; Measurement</h3>
+                        <div class="equip">
+                            <div>
+                                <h4 class="mono">Fabrication</h4>
+                                <ul>
+                                    <li>Femtosecond laser machining</li>
+                                    <li>Nanosecond laser machining</li>
+                                    <li>Laser cutting machines</li>
+                                    <li>3D printers</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <h4 class="mono">Measurement</h4>
+                                <ul class="equip-pairs">
+                                    <li><strong>Sensofar 3D Neox</strong><span>3D surface morphology</span></li>
+                                    <li><strong>Hydrophobicity instruments</strong><span>Hydrophobicity testing</span></li>
+                                    <li><strong>Color measurement</strong><span>CIELAB color analysis</span></li>
+                                </ul>
+                            </div>
+                        </div>
                         <p class="card-note">Used to evaluate process results and support research validation.</p>
                     </article>
                     <article class="card card-wide reveal">
@@ -517,6 +519,6 @@
         <button class="lb-next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20261007"></script>
 </body>
 </html>
