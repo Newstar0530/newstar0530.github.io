@@ -72,12 +72,12 @@ em { font-style: italic; }
 
 .grad-text {
     background: var(--grad);
-    background-size: 250% 100%;
+    background-size: 200% 100%; background-repeat: repeat-x;
     -webkit-background-clip: text; background-clip: text;
     color: transparent;
-    animation: shimmer 6s linear infinite;
+    animation: shimmer 8s linear infinite;
 }
-@keyframes shimmer { to { background-position: -250% 0; } }
+@keyframes shimmer { from { background-position: 0% 0; } to { background-position: -200% 0; } }
 
 /* Scroll progress + cursor glow */
 .progress {
@@ -362,9 +362,9 @@ main, footer { position: relative; z-index: 1; }
 .stat + .stat { padding-left: 24px; border-left: 1px solid var(--line); }
 .stat-n {
     font-family: var(--serif); font-size: 3.6rem; line-height: 1;
-    background: var(--grad); background-size: 250% 100%;
+    background: var(--grad); background-size: 200% 100%; background-repeat: repeat-x;
     -webkit-background-clip: text; background-clip: text; color: transparent;
-    animation: shimmer 6s linear infinite;
+    animation: shimmer 8s linear infinite;
 }
 .stat-l { font-size: .85rem; color: var(--muted); }
 
@@ -499,9 +499,9 @@ button.proj { font: inherit; color: var(--ink); text-align: left; cursor: pointe
 .honor { display: grid; grid-template-columns: 92px 1fr; gap: 20px; align-items: start; padding: 26px; }
 .honor-rank {
     font-family: var(--serif); font-size: 2.8rem; line-height: 1;
-    background: var(--grad); background-size: 250% 100%;
+    background: var(--grad); background-size: 200% 100%; background-repeat: repeat-x;
     -webkit-background-clip: text; background-clip: text; color: transparent;
-    animation: shimmer 6s linear infinite;
+    animation: shimmer 8s linear infinite;
 }
 .honor-rank sup { font-size: .4em; margin-left: 2px; }
 .honor-rank-sm { font-size: 1rem; line-height: 1.25; font-style: italic; hyphens: manual; }
@@ -552,9 +552,9 @@ button.proj { font: inherit; color: var(--ink); text-align: left; cursor: pointe
     text-shadow: 0 2px 30px rgba(0, 0, 0, .5);
 }
 .band-quote em {
-    background: var(--grad); background-size: 250% 100%;
+    background: var(--grad); background-size: 200% 100%; background-repeat: repeat-x;
     -webkit-background-clip: text; background-clip: text; color: transparent;
-    animation: shimmer 6s linear infinite; text-shadow: none; padding-right: .06em;
+    animation: shimmer 8s linear infinite; text-shadow: none; padding-right: .06em;
 }
 
 /* Gallery */
