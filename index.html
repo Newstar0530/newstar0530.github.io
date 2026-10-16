@@ -4,19 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hsuan-Hsin Huang</title>
+    <link rel="icon" type="image/png" href="picture/web/brand/favicon.png">
+    <link rel="apple-touch-icon" href="picture/web/brand/apple-touch-icon.png">
     <meta name="description" content="Hsuan-Hsin Huang: industrial engineering researcher in laser micromachining and parameter analysis, heading into culture and creative industry management.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=20261015c">
+    <link rel="stylesheet" href="style.css?v=20261016">
 </head>
 <body>
     <div class="progress" id="progress"></div>
     <div class="cursor-glow" id="cursorGlow"></div>
     <header class="nav" id="nav">
         <div class="nav-inner">
-            <a href="#top" class="brand">H<span>.</span>H<span>.</span>H</a>
+            <a href="#top" class="brand" aria-label="nova.logue, back to top"><img src="picture/web/brand/icon.png" alt="" class="brand-icon"><span class="brand-word">nova<span>.</span>logue</span></a>
             <nav>
                 <ul class="nav-links" id="navLinks">
                     <li><a href="#about">About</a></li>
@@ -262,6 +264,13 @@
                         <h3>Nova's Translator</h3>
                         <p class="proj-desc">A live lecture translator: English and French lectures become Traditional Chinese subtitles in real time, then structured study notes after class.</p>
                         <ul class="mini-tags"><li>Python</li><li>Streamlit</li><li>Mistral API</li><li>Speech recognition</li></ul>
+                        <span class="proj-open">View project <i class="fa-solid fa-arrow-right"></i></span>
+                    </button>
+                    <button type="button" class="proj proj-featured reveal" data-modal="modal-brand">
+                        <span class="mono">Brand identity · 2026</span>
+                        <h3>nova.logue</h3>
+                        <p class="proj-desc">My personal brand for sharing how an engineer learns the creative industries in France: logo, color and type systems, visual language and social media templates.</p>
+                        <ul class="mini-tags"><li>Brand identity</li><li>Visual design</li><li>Content strategy</li></ul>
                         <span class="proj-open">View project <i class="fa-solid fa-arrow-right"></i></span>
                     </button>
                     <article class="proj reveal">
@@ -529,6 +538,34 @@
         </div>
     </div>
 
+    <div class="modal" id="modal-brand" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modal-brand-title">
+        <div class="modal-panel">
+            <button class="modal-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+            <img src="picture/web/brand/logo.jpg" alt="nova.logue primary logo" class="modal-shot modal-shot-logo">
+            <div class="modal-body">
+                <span class="mono">Brand identity · 2026</span>
+                <h3 id="modal-brand-title">nova.logue</h3>
+                <p>nova.logue is the personal brand behind my social channels, documenting how an engineer approaches the creative industries while studying in France. The identity is built around one idea: <em>bridging</em> engineering precision and creative thinking.</p>
+                <ul class="modal-list">
+                    <li><strong>Logo &amp; monogram.</strong> Two interlocking H letterforms joined by a flowing bridge, with a compact X-shaped icon for small sizes.</li>
+                    <li><strong>Color system.</strong> Deep blue, deep purple and Tiffany blue as primary colors, with ivory, ink and champagne gold as accents.</li>
+                    <li><strong>Typography.</strong> Space Grotesk for headlines, Inter for body text and JetBrains Mono for numbers and labels.</li>
+                    <li><strong>Visual language &amp; templates.</strong> Flow lines, glowing nodes and grid patterns, applied to Instagram, Xiaohongshu and website templates.</li>
+                </ul>
+                <div class="brand-grid">
+                    <figure><img src="picture/web/brand/color.jpg" alt="nova.logue color system" loading="lazy"><figcaption>Color system</figcaption></figure>
+                    <figure><img src="picture/web/brand/type.jpg" alt="nova.logue typography system" loading="lazy"><figcaption>Typography</figcaption></figure>
+                    <figure><img src="picture/web/brand/visual.jpg" alt="nova.logue visual language" loading="lazy"><figcaption>Visual language</figcaption></figure>
+                    <figure><img src="picture/web/brand/pattern.jpg" alt="nova.logue brand pattern" loading="lazy"><figcaption>Brand pattern</figcaption></figure>
+                    <figure><img src="picture/web/brand/ig-post.jpg" alt="Instagram post template" loading="lazy"><figcaption>Instagram post</figcaption></figure>
+                    <figure><img src="picture/web/brand/ig-story.jpg" alt="Instagram story template" loading="lazy"><figcaption>Instagram story</figcaption></figure>
+                    <figure><img src="picture/web/brand/xhs.jpg" alt="Xiaohongshu cover template" loading="lazy"><figcaption>Xiaohongshu cover</figcaption></figure>
+                    <figure><img src="picture/web/brand/hero.jpg" alt="Website hero template" loading="lazy"><figcaption>Website hero</figcaption></figure>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="lightbox" id="lightbox" aria-hidden="true">
         <button class="lb-close" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
         <button class="lb-prev" aria-label="Previous"><i class="fa-solid fa-chevron-left"></i></button>
@@ -536,6 +573,6 @@
         <button class="lb-next" aria-label="Next"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
 
-    <script src="script.js?v=20261007"></script>
+    <script src="script.js?v=20261016"></script>
 </body>
 </html>

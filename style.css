@@ -110,8 +110,11 @@ main, footer { position: relative; z-index: 1; }
     width: min(1160px, 100% - 48px); margin-inline: auto; height: 100%;
     display: flex; align-items: center; justify-content: space-between;
 }
-.brand { font-family: var(--serif); font-weight: 600; font-size: 1.25rem; letter-spacing: .02em; }
-.brand span { color: var(--accent-1); text-shadow: 0 0 12px var(--accent-1); }
+.brand { display: inline-flex; align-items: center; gap: 10px; }
+.brand-icon { height: 26px; width: auto; filter: drop-shadow(0 0 8px rgba(95, 216, 207, .45)); transition: transform .5s var(--ease); }
+.brand:hover .brand-icon { transform: rotate(180deg); }
+.brand-word { font-family: 'Space Grotesk', var(--sans); font-weight: 600; font-size: 1.15rem; letter-spacing: .01em; color: var(--tiffany); }
+.brand-word span { color: var(--ink); }
 
 .nav-links { display: flex; gap: 4px; align-items: center; }
 .nav-links a {
@@ -821,3 +824,15 @@ button.proj { font: inherit; color: var(--ink); text-align: left; cursor: pointe
     .travels-frame { height: 72vh; min-height: 460px; }
     .travels-actions { justify-content: center; }
 }
+
+/* nova.logue brand modal */
+.modal-shot-logo { max-height: 420px; object-fit: cover; object-position: center 45%; }
+.brand-grid { columns: 3 220px; column-gap: 14px; margin-top: 28px; }
+.brand-grid figure {
+    break-inside: avoid; margin: 0 0 14px; border-radius: 12px; overflow: hidden;
+    border: 1px solid var(--line); background: var(--bg); cursor: zoom-in;
+    transition: border-color .3s, transform .3s var(--ease);
+}
+.brand-grid figure:hover { border-color: var(--accent); transform: translateY(-3px); }
+.brand-grid img { width: 100%; height: auto; }
+.brand-grid figcaption { font-family: var(--mono); font-size: .72rem; color: var(--muted); padding: 8px 12px; }

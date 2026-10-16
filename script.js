@@ -180,3 +180,8 @@ if (window.matchMedia('(pointer: fine)').matches && !reduceMotion) {
         });
     });
 }
+
+// Brand asset thumbnails open full size in a new tab
+document.querySelectorAll('.brand-grid figure').forEach(fig => {
+    fig.addEventListener('click', () => window.open(fig.querySelector('img').src, '_blank'));
+});
