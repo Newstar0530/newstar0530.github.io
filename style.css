@@ -113,8 +113,6 @@ main, footer { position: relative; z-index: 1; }
 .brand { display: inline-flex; align-items: center; gap: 10px; }
 .brand-icon { height: 26px; width: auto; filter: drop-shadow(0 0 8px rgba(95, 216, 207, .45)); transition: transform .5s var(--ease); }
 .brand:hover .brand-icon { transform: rotate(180deg); }
-.brand-word { font-family: 'Space Grotesk', var(--sans); font-weight: 600; font-size: 1.15rem; letter-spacing: .01em; color: var(--tiffany); }
-.brand-word span { color: var(--ink); }
 
 /* H.H.H monogram: gradient letters with glowing dots */
 .brand-hhh { gap: 5px; padding: 4px 2px; }
