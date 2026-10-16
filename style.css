@@ -116,6 +116,38 @@ main, footer { position: relative; z-index: 1; }
 .brand-word { font-family: 'Space Grotesk', var(--sans); font-weight: 600; font-size: 1.15rem; letter-spacing: .01em; color: var(--tiffany); }
 .brand-word span { color: var(--ink); }
 
+/* H.H.H monogram: gradient letters with glowing dots */
+.brand-hhh { gap: 5px; padding: 4px 2px; }
+.brand-hhh .brand-icon { margin-right: 6px; }
+.brand-hhh .hhh-l {
+    font-family: var(--serif);
+    font-style: italic;
+    font-weight: 600;
+    font-size: 1.45rem;
+    line-height: 1;
+    background: var(--grad);
+    background-size: 600% 100%; background-repeat: repeat-x;
+    -webkit-background-clip: text; background-clip: text;
+    color: transparent;
+    animation: shimmer 8s linear infinite;
+    filter: drop-shadow(0 0 10px rgba(124, 77, 255, .35));
+    transition: transform .45s var(--ease);
+}
+/* 讓三個字母各自取漸層的不同段落，連起來像一條流動的光 */
+.brand-hhh .hhh-l:nth-of-type(2) { background-position-x: 33%; animation-delay: -2.67s; }
+.brand-hhh .hhh-l:nth-of-type(3) { background-position-x: 66%; animation-delay: -5.33s; }
+.brand-hhh .hhh-dot {
+    width: 5px; height: 5px; border-radius: 50%;
+    background: var(--tiffany);
+    box-shadow: 0 0 8px var(--tiffany);
+    align-self: flex-end; margin-bottom: 5px;
+    transition: transform .45s var(--ease), background .3s, box-shadow .3s;
+}
+.brand-hhh .hhh-dot:nth-of-type(2) { background: var(--accent-1); box-shadow: 0 0 8px var(--accent-1); }
+.brand-hhh:hover .hhh-l:nth-of-type(1) { transform: translateX(-3px) rotate(-6deg); }
+.brand-hhh:hover .hhh-l:nth-of-type(3) { transform: translateX(3px) rotate(6deg); }
+.brand-hhh:hover .hhh-dot { transform: scale(1.5); }
+
 .nav-links { display: flex; gap: 4px; align-items: center; }
 .nav-links a {
     position: relative;
