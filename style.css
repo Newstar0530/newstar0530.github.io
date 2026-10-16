@@ -836,3 +836,4 @@ button.proj { font: inherit; color: var(--ink); text-align: left; cursor: pointe
 .brand-grid figure:hover { border-color: var(--accent); transform: translateY(-3px); }
 .brand-grid img { width: 100%; height: auto; }
 .brand-grid figcaption { font-family: var(--mono); font-size: .72rem; color: var(--muted); padding: 8px 12px; }
+.brand-grid { columns: 2 220px; }
