@@ -867,3 +867,6 @@ button.proj { font: inherit; color: var(--ink); text-align: left; cursor: pointe
 .brand-grid img { width: 100%; height: auto; }
 .brand-grid figcaption { font-family: var(--mono); font-size: .72rem; color: var(--muted); padding: 8px 12px; }
 .brand-grid { columns: 2 220px; }
+
+/* Typography accent sample in the nova.logue modal */
+.type-accent { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 1.08em; color: var(--ink); }
