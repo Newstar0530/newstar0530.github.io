@@ -870,3 +870,44 @@ button.proj { font: inherit; color: var(--ink); text-align: left; cursor: pointe
 
 /* Typography accent sample in the nova.logue modal */
 .type-accent { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 1.08em; color: var(--ink); }
+
+/* ============ Motion layer (React Bits-inspired, see motion.js) ============ */
+/* Blur text */
+.bt .bt-w { display: inline-block; opacity: 0; filter: blur(12px); transform: translateY(.35em); }
+.bt.bt-on .bt-w { animation: bt-in .9s var(--ease) forwards; animation-delay: calc(var(--i) * 90ms); }
+@keyframes bt-in { to { opacity: 1; filter: blur(0); transform: none; } }
+/* inline-block gradient words need room below, or the descender (the g in Huang) gets clipped */
+.bt .grad-text.bt-w { padding-bottom: .18em; margin-bottom: -.18em; }
+
+/* Spotlight border: a glowing edge that follows the cursor */
+.card::after, .proj::after, .edu-card::after, .honor::after {
+    content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none;
+    background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgba(95, 216, 207, .9), rgba(139, 92, 246, .55) 40%, transparent 70%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude;
+    opacity: 0; transition: opacity .4s;
+}
+.card:hover::after, .proj:hover::after, .edu-card:hover::after, .honor:hover::after { opacity: 1; }
+
+/* Magnet buttons ease back into place */
+.btn { transition-property: transform, translate, background-position, box-shadow, border-color, color; }
+.btn { transition-duration: .35s; }
+
+/* Tilted portrait, with the badges drifting the other way */
+.arch { transition: transform .25s ease-out; will-change: transform; }
+.hero-portrait .badge { transition: translate .3s ease-out; }
+.hero-portrait .badge-a { translate: calc(var(--px, 0) * -18px) calc(var(--py, 0) * -14px); }
+.hero-portrait .badge-b { translate: calc(var(--px, 0) * 18px) calc(var(--py, 0) * 14px); }
+
+/* Click spark */
+.spark-burst { position: fixed; width: 0; height: 0; pointer-events: none; z-index: 9999; }
+.spark-burst i {
+    position: absolute; left: -1px; top: -1px; width: 2px; height: 12px; border-radius: 2px;
+    background: linear-gradient(var(--tiffany), transparent);
+    transform-origin: 1px 1px; rotate: var(--a);
+    animation: spark .55s var(--ease) forwards;
+}
+@keyframes spark {
+    from { opacity: 1; transform: translateY(4px) scaleY(1); }
+    to { opacity: 0; transform: translateY(26px) scaleY(.3); }
+}
