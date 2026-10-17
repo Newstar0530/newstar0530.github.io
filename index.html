@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..600&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css?v=20261017n">
+    <link rel="stylesheet" href="style.css?v=20261018l">
 </head>
 <body>
     <div class="progress" id="progress"></div>
@@ -79,6 +79,32 @@
                 <span>Laser micromachining</span><i>✦</i><span>Design of experiments</span><i>✦</i><span>Parameter analysis</span><i>✦</i><span>Material analysis</span><i>✦</i><span>Python automation</span><i>✦</i><span>Brand marketing</span><i>✦</i>
             </div>
         </div>
+
+        <!-- ORBIT: a galaxy with the things I orbit around (galaxy.js + orbit.js) -->
+        <section class="orbit" id="orbit" aria-label="Things I orbit around">
+            <div class="grid-bg" aria-hidden="true"></div>
+            <svg class="orbit-lines" aria-hidden="true"></svg>
+            <div class="orbit-head">
+                <p class="eyebrow reveal"><span class="dot"></span>In orbit</p>
+                <h2 class="orbit-title reveal">Engineering meets <em class="grad-text">creative</em></h2>
+                <svg class="dip-divider reveal" viewBox="0 0 260 26" aria-hidden="true">
+                    <path d="M0 9 H104 C114 9 118 21 130 21 C142 21 146 9 156 9 H260"/>
+                    <circle cx="130" cy="21" r="3.2"/>
+                </svg>
+            </div>
+            <ul class="orbit-labels">
+                <li><button class="orbit-label eng" data-ring="0" data-angle="20" data-desc="Femtosecond and nanosecond laser micromachining"><i class="fa-solid fa-burst"></i><span>Laser</span></button></li>
+                <li><button class="orbit-label eng" data-ring="0" data-angle="110" data-desc="Multi-objective optimization with NSGA-II"><i class="fa-solid fa-diagram-project"></i><span>Algorithms</span></button></li>
+                <li><button class="orbit-label eng" data-ring="0" data-angle="200" data-desc="Design of experiments and parameter analysis"><i class="fa-solid fa-chart-line"></i><span>Data</span></button></li>
+                <li><button class="orbit-label eng" data-ring="0" data-angle="290" data-desc="Python automation for the lab and beyond"><i class="fa-solid fa-code"></i><span>Code</span></button></li>
+                <li><button class="orbit-label cre" data-ring="1" data-angle="0" data-desc="Sound, rhythm and mood"><i class="fa-solid fa-music"></i><span>Music</span></button></li>
+                <li><button class="orbit-label cre" data-ring="1" data-angle="72" data-desc="Stories told in light and frame"><i class="fa-solid fa-film"></i><span>Film</span></button></li>
+                <li><button class="orbit-label cre" data-ring="1" data-angle="144" data-desc="Through my lens, from Taiwan and beyond"><i class="fa-solid fa-camera"></i><span>Photography</span></button></li>
+                <li><button class="orbit-label cre" data-ring="1" data-angle="216" data-desc="Les Traces de Nova, the places I have been"><i class="fa-solid fa-earth-europe"></i><span>Travel</span></button></li>
+                <li><button class="orbit-label cre" data-ring="1" data-angle="288" data-desc="nova.logue, my personal brand"><i class="fa-solid fa-pen-nib"></i><span>Branding</span></button></li>
+            </ul>
+            <p class="orbit-caption" aria-live="polite"><span class="legend"><i class="lg eng"></i>Engineering</span><span class="legend"><i class="lg cre"></i>Creative</span></p>
+        </section>
 
         <!-- ABOUT -->
         <section id="about" class="section">
@@ -571,5 +597,8 @@
 
     <script src="script.js?v=20261016"></script>
     <script src="motion.js?v=20261017"></script>
+    <script src="galaxy.js?v=20261018e"></script>
+    <script src="orbit.js?v=20261018d"></script>
+    <script src="fx.js?v=20261018f"></script>
 </body>
 </html>

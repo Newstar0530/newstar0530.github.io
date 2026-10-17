@@ -880,14 +880,15 @@ button.proj { font: inherit; color: var(--ink); text-align: left; cursor: pointe
 .bt .grad-text.bt-w { padding-bottom: .18em; margin-bottom: -.18em; }
 
 /* Spotlight border: a glowing edge that follows the cursor */
-.card::after, .proj::after, .edu-card::after, .honor::after {
+/* featured project cards already use ::after for a corner glow and have their own animated border */
+.card::after, .proj:not(.proj-featured)::after, .edu-card::after, .honor::after {
     content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none;
     background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgba(95, 216, 207, .9), rgba(139, 92, 246, .55) 40%, transparent 70%);
     -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
     -webkit-mask-composite: xor; mask-composite: exclude;
     opacity: 0; transition: opacity .4s;
 }
-.card:hover::after, .proj:hover::after, .edu-card:hover::after, .honor:hover::after { opacity: 1; }
+.card:hover::after, .proj:not(.proj-featured):hover::after, .edu-card:hover::after, .honor:hover::after { opacity: 1; }
 
 /* Magnet buttons ease back into place */
 .btn { transition-property: transform, translate, background-position, box-shadow, border-color, color; }
@@ -911,3 +912,153 @@ button.proj { font: inherit; color: var(--ink); text-align: left; cursor: pointe
     from { opacity: 1; transform: translateY(4px) scaleY(1); }
     to { opacity: 0; transform: translateY(26px) scaleY(.3); }
 }
+
+/* ============ Interactive layer (fx.js) ============ */
+/* 1. Hero constellation */
+.constellation { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; }
+
+.hero .wrap { z-index: 1; }
+
+/* 2. Variable proximity letters */
+.hero h1 .vp { transition: font-weight .25s ease-out; }
+
+/* 3. Scroll-velocity marquee */
+.marquee-track.js-driven { animation: none; will-change: transform; }
+
+/* 4. Tilt + glare */
+/* JS drives the tilt frame by frame, so no transform transition here;
+   the glass blur is dropped while tilting (invisible on these dark cards, costly to redraw in 3D) */
+.proj.tilting, .honor.tilting, .edu-card.tilting {
+    transition: border-color .4s, box-shadow .4s;
+    will-change: transform;
+    backdrop-filter: none; -webkit-backdrop-filter: none;
+}
+.glare {
+    position: absolute; inset: 0; border-radius: inherit; pointer-events: none; z-index: 2;
+    background: radial-gradient(circle at var(--gx, 50%) var(--gy, 50%), rgba(255, 255, 255, .16), transparent 45%);
+    mix-blend-mode: soft-light; opacity: 0; transition: opacity .3s;
+}
+.proj:hover .glare, .honor:hover .glare, .edu-card:hover .glare { opacity: 1; }
+
+/* 5. Cursor ring */
+.cursor-ring, .cursor-dot { position: fixed; left: 0; top: 0; pointer-events: none; z-index: 10000; opacity: 0; transition: opacity .3s; }
+body.has-ring .cursor-ring, body.has-ring .cursor-dot { opacity: 1; }
+.cursor-ring::before {
+    content: ""; position: absolute; left: -18px; top: -18px; width: 36px; height: 36px; border-radius: 50%;
+    border: 1.5px solid rgba(95, 216, 207, .8);
+    box-shadow: 0 0 14px rgba(95, 216, 207, .35), inset 0 0 10px rgba(139, 92, 246, .25);
+    transition: transform .3s var(--ease), background .3s, border-color .3s;
+}
+.cursor-ring.hot::before { transform: scale(1.8); background: rgba(139, 92, 246, .12); border-color: rgba(139, 92, 246, .9); }
+.cursor-ring.press::before { transform: scale(.7); }
+.cursor-dot::before {
+    content: ""; position: absolute; left: -3px; top: -3px; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--tiffany); box-shadow: 0 0 8px var(--tiffany);
+}
+
+/* ============ In orbit section (galaxy.js + orbit.js) ============ */
+.orbit {
+    position: relative; overflow: hidden;
+    height: 100svh; min-height: 680px; max-height: 1000px;
+    background:
+        radial-gradient(ellipse 60% 45% at 50% 56%, rgba(46, 26, 71, .55), transparent 70%),
+        radial-gradient(ellipse 40% 30% at 50% 56%, rgba(10, 26, 58, .6), transparent 70%),
+        var(--bg);
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+}
+.orbit .grid-bg { z-index: 0; mask-image: radial-gradient(ellipse at 50% 55%, #000 10%, transparent 62%);
+    -webkit-mask-image: radial-gradient(ellipse at 50% 55%, #000 10%, transparent 62%); }
+.orbit .galaxy { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; }
+.orbit-lines { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2; pointer-events: none; overflow: visible; }
+.orbit-lines .ring { fill: none; stroke-width: 1.2; }
+.orbit-lines .ring-0 { stroke: rgba(95, 216, 207, .55); }
+.orbit-lines .ring-1 { stroke: rgba(139, 92, 246, .55); }
+.orbit-lines .ring-back { stroke-dasharray: 3 7; opacity: .45; }
+.orbit-lines .flow { fill: none; stroke-width: 1; transition: opacity .3s; }
+.orbit-lines .flow-0 { stroke: var(--tiffany); }
+.orbit-lines .flow-1 { stroke: #a78bfa; }
+.orbit.has-hot .flow { stroke-dasharray: 4 6; animation: flow-dash 1.2s linear infinite; }
+@keyframes flow-dash { to { stroke-dashoffset: -20; } }
+.orbit-lines .node-0 { fill: #bff6f3; }
+.orbit-lines .node-1 { fill: #d9ccff; }
+.orbit-lines .frame { fill: none; stroke: rgba(184, 180, 207, .35); stroke-width: 1.2; }
+
+.orbit-head { position: absolute; z-index: 4; top: clamp(48px, 9vh, 96px); left: 0; right: 0; text-align: center; pointer-events: none; }
+.orbit-title { font-family: var(--serif); font-weight: 400; font-size: clamp(2rem, 4.6vw, 3.4rem); line-height: 1.05; margin-top: 12px; letter-spacing: -.02em; }
+.orbit-title em { font-style: italic; font-weight: 300; padding-right: .08em; }
+.dip-divider { width: 220px; height: 22px; margin-top: 14px; overflow: visible; }
+.dip-divider path { fill: none; stroke: var(--tiffany); stroke-width: 1.4; opacity: .8; }
+.dip-divider circle { fill: var(--tiffany); filter: drop-shadow(0 0 6px var(--tiffany)); }
+
+.orbit-labels { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
+.orbit-labels li { display: contents; }
+.orbit-label {
+    position: absolute; left: 0; top: 0; pointer-events: auto; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 9px;
+    padding: 9px 15px; border-radius: 999px;
+    font-family: var(--mono); font-size: .74rem; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--ink); background: rgba(9, 10, 26, .62);
+    border: 1px solid var(--line-strong); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    white-space: nowrap; will-change: transform, opacity;
+    transition: border-color .3s, box-shadow .3s, background .3s, color .3s;
+}
+.orbit-label i { font-size: .9rem; }
+.orbit-label.eng i { color: var(--tiffany); }
+.orbit-label.cre i { color: #a78bfa; }
+.orbit-label.back { z-index: -1; background: transparent; border-color: rgba(255,255,255,.08); backdrop-filter: none; -webkit-backdrop-filter: none; }   /* drops behind the galaxy on the far side */
+.orbit-label.eng:hover, .orbit-label.eng.hot { border-color: var(--tiffany); box-shadow: 0 0 24px -4px rgba(95, 216, 207, .7); background: rgba(10, 40, 50, .7); }
+.orbit-label.cre:hover, .orbit-label.cre.hot { border-color: #a78bfa; box-shadow: 0 0 24px -4px rgba(139, 92, 246, .8); background: rgba(40, 20, 70, .7); }
+.orbit-label:focus-visible { outline: 2px solid var(--accent-1); outline-offset: 3px; }
+
+.orbit-caption {
+    position: absolute; z-index: 4; left: 0; right: 0; bottom: clamp(36px, 7vh, 72px);
+    display: flex; justify-content: center; align-items: baseline; gap: 22px; flex-wrap: wrap;
+    padding: 0 24px; pointer-events: none; min-height: 2.2em;
+    font-family: var(--mono); font-size: .76rem; letter-spacing: .14em; text-transform: uppercase; color: var(--ink-2);
+}
+.orbit-caption em { font-family: var(--serif); font-style: italic; font-size: 1.5rem; letter-spacing: 0; text-transform: none;
+    background: var(--grad); background-size: 200% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; padding-right: .1em; }
+.orbit-caption .legend { display: inline-flex; align-items: center; gap: 8px; }
+.orbit-caption .lg { width: 8px; height: 8px; border-radius: 50%; }
+.orbit-caption .lg.eng { background: var(--tiffany); box-shadow: 0 0 8px var(--tiffany); }
+.orbit-caption .lg.cre { background: #a78bfa; box-shadow: 0 0 8px #a78bfa; }
+
+@media (max-width: 899px) {
+    .orbit { height: 88svh; min-height: 600px; }
+    .orbit-label { padding: 9px; font-size: 0; gap: 0; }   /* icons only on phones; the caption shows the name */
+    .orbit-label i { font-size: 1rem; }
+    .orbit-caption { flex-direction: column; align-items: center; gap: 6px; text-align: center; }
+}
+
+/* ============ Alternating blue / purple sections, About onward ============ */
+/* Every section fades to the same in-between colour at its top and bottom edge,
+   so neighbouring sections meet on an identical colour and blend without a seam. */
+:root {
+    /* nova.logue Color System primaries */
+    --sec-blue: #071229;     /* Deep Blue #0A1A3A at 70% brightness */
+    --sec-purple: #130B1E;   /* Deep Purple #2E1A47 at 42% brightness */
+    --sec-mid: #0D0E23;      /* exact midpoint of the two, the shared edge colour */
+}
+#research, #projects, #skills {
+    background: linear-gradient(180deg, var(--sec-mid) 0%, var(--sec-blue) 28%, var(--sec-blue) 72%, var(--sec-mid) 100%);
+}
+#education, #experience, #honors, #gallery {
+    background: linear-gradient(180deg, var(--sec-mid) 0%, var(--sec-purple) 28%, var(--sec-purple) 72%, var(--sec-mid) 100%);
+}
+/* first and last of the run fade from / into the page's base colour */
+#about { background: linear-gradient(180deg, var(--bg) 0%, var(--sec-blue) 30%, var(--sec-blue) 72%, var(--sec-mid) 100%); }
+#travels { background: linear-gradient(180deg, var(--sec-mid) 0%, var(--sec-blue) 28%, var(--sec-blue) 70%, var(--bg) 100%); }
+.section-alt::before { display: none; }   /* the old top hairline would cut the blend */
+.orbit { border-bottom: 0; }
+
+/* a soft glow in alternating corners keeps the flat colour from looking empty */
+#about::after, #research::after, #projects::after, #skills::after, #travels::after,
+#education::after, #experience::after, #honors::after, #gallery::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0;
+}
+#about::after, #projects::after, #travels::after { background: radial-gradient(ellipse 45% 50% at 100% 30%, rgba(95, 216, 207, .06), transparent 70%); }
+#research::after, #skills::after { background: radial-gradient(ellipse 45% 50% at 0% 70%, rgba(95, 216, 207, .06), transparent 70%); }
+#education::after, #honors::after { background: radial-gradient(ellipse 45% 50% at 0% 30%, rgba(167, 139, 250, .09), transparent 70%); }
+#experience::after, #gallery::after { background: radial-gradient(ellipse 45% 50% at 100% 70%, rgba(167, 139, 250, .09), transparent 70%); }
+#about > .wrap, #research > .wrap, #projects > .wrap, #skills > .wrap, #travels > .wrap,
+#education > .wrap, #experience > .wrap, #honors > .wrap, #gallery > .wrap { position: relative; z-index: 1; }
