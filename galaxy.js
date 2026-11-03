@@ -91,7 +91,10 @@
         float a = vKind > 1.5 ? exp(-d * d * 4.0) : smoothstep(1.0, 0.0, d);
         if (vKind > 0.5 && vKind < 1.5) a += 0.6 * max(0.0, 1.0 - abs(gl_PointCoord.x - 0.5) * 18.0) * (1.0 - d)
                                               + 0.6 * max(0.0, 1.0 - abs(gl_PointCoord.y - 0.5) * 18.0) * (1.0 - d);
-        gl_FragColor = vec4(vCol * a * vI, 0.0);
+        // Alpha must be at least the brightest channel: the canvas is premultiplied,
+        // and colour with zero alpha is invalid there, so browsers drop it as transparent.
+        vec3 col = vCol * a * vI;
+        gl_FragColor = vec4(col, max(col.r, max(col.g, col.b)));
     }`;
 
     const gauss = () => Math.sqrt(-2 * Math.log(Math.random() + 1e-9)) * Math.cos(2 * Math.PI * Math.random());
